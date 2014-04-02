@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "gm": "^1.14.2"
+    "gm": "^1.14.2",
+    "debug": "^0.8.0"
   }
 }

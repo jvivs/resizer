@@ -1,6 +1,9 @@
+var debug = require('debug');
 var path = require('path');
 var fs = require('fs');
 var gm = require('gm');
+
+debug('resize module!');
 
 var resizer = function (name, source, target, size, cb) {
 	var error = null;
@@ -17,8 +20,10 @@ var resizer = function (name, source, target, size, cb) {
 	}
 
 	if (error) {
+		debug(error);
  	    cb(error, null);
 	} else {
+		debug('all\'s well that starts well');
 		var readStream = fs.createReadStream(source);
 		var resizedPath = path.join(target, name);
 
@@ -29,6 +34,7 @@ var resizer = function (name, source, target, size, cb) {
 				var error = err || null;
 				var result = !error ? resizedPath : null;
 
+				debug('all\'s well that ends well');
 				cb(error, result);
 			})
 	}
